@@ -1,2 +1,2 @@
-# python_ide
+# Python IDE
 A simple python ide built using the kivy library. 
