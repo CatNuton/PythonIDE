@@ -48,7 +48,7 @@ class PythonIDE(App):
                 self.console_text_input.foreground_color = (0, 0.5, 0, 1)
         except Exception as e:
             self.console_text_input.foreground_color = (1, 0, 0, 1)
-            self.console_text_input._set_text(f'{str(e)} See error in concole.')
+            self.console_text_input._set_text(str(e))
 
     def SaveAs(self, instance):
         self.file_path = filedialog.asksaveasfilename(defaultextension='.py', filetypes=[('Python code file', '*.py')])
