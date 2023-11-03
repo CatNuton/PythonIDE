@@ -5,7 +5,6 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from pygments.lexers import PythonLexer
 from tkinter import filedialog
-import subprocess
 import keyboard
 
 class PythonIDE(App):
@@ -45,9 +44,7 @@ class PythonIDE(App):
         self.Save(instance=0)
         try:
             if self.file_path != '':
-                command = 'python '+self.file_path
-                output = subprocess.check_output(command, shell=True, encoding='utf-8')
-                self.console_text_input._set_text(output)
+                exec(self.code_input.text);
                 self.console_text_input.foreground_color = (0, 0.5, 0, 1)
         except Exception as e:
             self.console_text_input.foreground_color = (1, 0, 0, 1)
