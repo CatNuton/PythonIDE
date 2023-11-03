@@ -42,10 +42,12 @@ class PythonIDE(App):
 
     def RunPythonCode(self, instance):
         self.Save(instance=0)
+        self.console_text_input._set_text("")
         try:
             if self.file_path != '':
                 exec(self.code_input.text);
                 self.console_text_input.foreground_color = (0, 0.5, 0, 1)
+                self.console_text_input._set_text("Successfully executed!")
         except Exception as e:
             self.console_text_input.foreground_color = (1, 0, 0, 1)
             self.console_text_input._set_text(str(e))
